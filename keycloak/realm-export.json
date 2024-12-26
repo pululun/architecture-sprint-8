@@ -14,6 +14,10 @@
         {
           "name": "prothetic_user",
           "description": "Prothetic user role with report access"
+        },
+        {
+          "name": "ROLE_REPORT",
+          "description": "Experemental role"
         }
       ]
     },
@@ -107,6 +111,21 @@
           }
         ],
         "realmRoles": ["prothetic_user"]
+      },
+      {
+        "username": "report",
+        "enabled": true,
+        "email": "report@example.com",
+        "firstName": "Prothetic",
+        "lastName": "Three",
+        "credentials": [
+          {
+            "type": "password",
+            "value": "report",
+            "temporary": false
+          }
+        ],
+        "realmRoles": ["prothetic_user"]
       }
     ],
     "clients": [
@@ -124,6 +143,19 @@
         "clientAuthenticatorType": "client-secret",
         "secret": "oNwoLQdvJAvRcL89SydqCWCe5ry1jMgq", 
         "bearerOnly": true
+      },
+      {
+        "clientId": "report-spring-app",
+        "enabled": true,
+        "publicClient": true,
+        "redirectUris": ["http://localhost:8000/*"],
+        "webOrigins": ["http://localhost:8000"],
+        "directAccessGrantsEnabled": true,
+        "secret": "IufiXk7jf8xHdAFLaoeCOD7Vtiniolmo",
+        "attributes": {
+          "pkce.code.challenge.required": "true",
+          "pkce.code.challenge.method": "S256"
+        }
       }
     ]
   }
